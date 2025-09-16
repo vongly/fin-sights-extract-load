@@ -59,7 +59,7 @@ class ProcessPipeline:
         else:
             return False
 
-if __name__ == '__main__':
+def run_all_pipelines():
 
     # Checks file structure at bucket path -> will interpret now sources
     client = AccessS3Bucket()
@@ -106,3 +106,6 @@ if __name__ == '__main__':
                         path = f'{file}',
                         target = f'{resource_obj.bucket_path}{resource_obj.directory}{processed_folder}{resource_obj.processed_str}-{i}.{file_type}'
                     )
+
+if __name__ == '__main__':
+    run_all_pipelines()
